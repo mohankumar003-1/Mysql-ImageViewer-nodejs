@@ -1,5 +1,5 @@
-const db = require('../db'); // Adjust the path as needed
-
+const db = require('../db/db'); // Adjust the path as needed
+console.log('db object:', db);
 const saveImagesToDb = async (req, res) => {
     try {
         const images = req.files;
@@ -23,5 +23,5 @@ const saveImagesToDb = async (req, res) => {
     }
 };
 
-module.exports = { saveImagesToDb };
+module.exports = { saveImagesToDb};
 

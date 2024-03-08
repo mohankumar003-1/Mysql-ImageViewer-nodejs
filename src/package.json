@@ -10,8 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
     "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
     "mysql2": "^3.9.2"
   }
 }

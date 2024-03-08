@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up | Log In</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <img src="images/image.png" alt="">
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+        <div class="title-text">
+            <div class="title login">
+                Account
+            </div>
+            <div class="title signup">
+                Account
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">SignUp</label>
+                <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+                <form action="#" class="login" id="loginForm">
+                    <div class="field">
+                        <input type="text" placeholder="Email Address" id="loginUsername" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" id="loginPassword" required>
+                    </div>
+                    <div class="pass-link">
+                        <a href="#">Reset password?</a>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <button type="button" onclick="submitLoginForm()">Login</button>
+                    </div>
+                    <div class="signup-link">
+                        Don't Have Account? <a href="#">Create A New</a>
+                    </div>
+                </form>
+                <!-- Signup form and other content can be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitLoginForm() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // You can now send the username and password to the backend using fetch or another method
+            // Example using fetch:
+            console.log(username);
+            console.log(password);
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response from the backend
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
+

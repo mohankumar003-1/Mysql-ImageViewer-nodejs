@@ -163,6 +163,9 @@ body{
         </form>
 
     </div> -->
+    <div class="gallery-section" id="image-container">
+            <!-- Images will be dynamical:ly added here -->
+        </div>
     <script>
         const dropArea = document.querySelector('.drop-section')
 const listSection = document.querySelector('.list-section')
@@ -243,6 +246,38 @@ function typeValidation(type){
                 // Handle other types of errors on the frontend
             }
         }
+
+async function fetchImages() {
+            try {
+                const response = await fetch('http://localhost:3000/api/images');
+                if (response.ok) {
+                    const images = await response.json();
+                    displayImages(images);
+                } else {
+                    console.error('Failed to fetch images.');
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
+
+        function displayImages(images) {
+            const imageContainer = document.getElementById('image-container');
+            images.forEach((image) => {
+                // Create an image element for each image
+                const imgElement = document.createElement('img');
+                imgElement.src = `data:image/png;base64,${image.data.toString('base64')}`;
+                imgElement.alt = image.filename;
+                imgElement.className = 'gallery-image';
+
+                // Append the image to the container
+                imageContainer.appendChild(imgElement);
+            });
+        }
+
+        // Call the fetchImages function when the page loads
+        fetchImages();
+
     </script>
 
 </body>
